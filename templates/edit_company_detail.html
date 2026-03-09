@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Edit Company Detail{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="mb-4">Edit Company Detail</h3>
+
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Label</label>
+                <input type="text"
+                       name="detail_label"
+                       class="form-control"
+                       value="{{ detail.detail_label }}"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea name="detail_description"
+                          class="form-control"
+                          rows="4">{{ detail.detail_value or '' }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Detail</button>
+            <a href="{{ url_for('company_detail', company_id=company_id) }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
