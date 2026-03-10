@@ -1,3 +1,56 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+{% block title %}Audit Logs{% endblock %}
+
+{% block content %}
+<div class="section-card">
+    <div class="company-header">
+        <div>
+            <h2 class="mb-2">Audit Logs</h2>
+            <p class="text-muted">Track who did what, when, and in which company</p>
+        </div>
+    </div>
+</div>
+
+<div class="section-card">
+    {% if logs %}
+        <div style="overflow-x:auto;">
+            <table>
+                <thead>
+                    <tr>
+                         <th>ID</th>
+                        <th>Role</th>
+                        <th>Username</th>
+                        <th>Company</th>
+                        <th>Table</th>
+                        <th>Action</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log.id }}</td>
+                        <td>{{ log.actor_role }}</td>
+                        <td>{{ log.actor_username }}</td>
+                        <td>{{ log.company_name or '-' }}</td>
+                        <td>{{ log.table_name or '-' }}</td>
+                        <td>{{ log.action_type }}</td>
+                        <td>{{ log.description }}</td>
+                        <td>{{ log.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="meta-box">
+            <p>No audit logs found.</p>
+        </div>
+    {% endif %}
+</div>
+=======
 {% extends "base.html" %}
 {% block title %}Audit Logs{% endblock %}
 
@@ -45,4 +98,5 @@
         </div>
     {% endif %}
 </div>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

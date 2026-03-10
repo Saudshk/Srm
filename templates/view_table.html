@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 {% block title %}View Table{% endblock %}
 
@@ -79,4 +80,87 @@
         {% endif %}
     </div>
 </div>
+=======
+{% extends "base.html" %}
+{% block title %}View Table{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div>
+        <h2>{{ table.table_name }}</h2>
+        <p class="text-muted mb-0">Company: {{ company.company_name }}</p>
+    </div>
+
+    <div class="d-flex gap-2 flex-wrap">
+        <a href="{{ url_for('add_row', table_id=table.id) }}" class="btn btn-success">
+            Add Row
+        </a>
+
+        <a href="{{ url_for('delete_table', table_id=table.id) }}"
+           class="btn btn-danger"
+           onclick="return confirm('Delete this table and all its rows?')">
+            Delete Table
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        {% if table_data %}
+        <div class="table-responsive mb-3">
+            <table class="table table-bordered align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        {% for column in columns %}
+                            <th>{{ column.column_name }}</th>
+                        {% endfor %}
+                        <th>Status</th>
+                        <th style="width: 110px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in table_data %}
+                    <tr class="{% if row.badge %}table-{{ row.badge }}{% endif %}">
+                        {% for column in columns %}
+                            <td>{{ row["row_values"].get(column.column_name, '') }}</td>
+                        {% endfor %}
+
+                        <td>
+                            {% if row.status %}
+                                <span class="badge bg-{{ row.badge }}">{{ row.status }}</span>
+                            {% else %}
+                                <span class="text-muted">N/A</span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            <a href="{{ url_for('delete_row', row_id=row.id, table_id=table.id) }}"
+                               class="btn btn-sm btn-danger"
+                               onclick="return confirm('Delete this row?')">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-3">
+            <a href="{{ url_for('export_table_excel', table_id=table.id) }}" class="btn btn-outline-dark">
+                Export to Excel
+            </a>
+        </div>
+        {% else %}
+            <p class="text-muted">No rows added yet.</p>
+
+            <div class="mt-3">
+                <a href="{{ url_for('export_table_excel', table_id=table.id) }}" class="btn btn-outline-dark">
+                    Export to Excel
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

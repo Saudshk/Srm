@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 {% block title %}Company Details{% endblock %}
 
@@ -84,4 +85,92 @@
         </div>
     </div>
 </div>
+=======
+{% extends "base.html" %}
+{% block title %}Company Details{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div>
+        <h2 class="mb-1">{{ company.company_name }} - Company Details</h2>
+        <p class="text-muted mb-0">Add dynamic label and description for this company</p>
+    </div>
+
+    <div class="d-flex gap-2 flex-wrap">
+        <a href="{{ url_for('company_detail', company_id=company.id) }}" class="btn btn-secondary">
+            Back
+        </a>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="mb-3">Add Detail</h4>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Label</label>
+                        <input type="text"
+                               name="detail_label"
+                               class="form-control"
+                               placeholder="e.g. Server IP"
+                               required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="detail_description"
+                                  class="form-control"
+                                  rows="4"
+                                  placeholder="e.g. 192.168.1.25"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark w-100">Add Detail</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="mb-3">Saved Details</h4>
+
+                {% if details %}
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th style="width: 30%;">Label</th>
+                                <th>Description</th>
+                                <th style="width: 110px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for detail in details %}
+                            <tr>
+                                <td><strong>{{ detail.detail_label }}</strong></td>
+                                <td>{{ detail.detail_value or '-' }}</td>
+                                <td>
+                                    <a href="{{ url_for('delete_company_detail', detail_id=detail.id, company_id=company.id) }}"
+                                       class="btn btn-sm btn-danger"
+                                       onclick="return confirm('Delete this detail?')">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                    <p class="text-muted mb-0">No company details added yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

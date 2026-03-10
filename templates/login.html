@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% block title %}Admin Login{% endblock %}
@@ -24,4 +25,32 @@
         </form>
     </div>
 </div>
+=======
+{% extends "base.html" %}
+
+{% block title %}Admin Login{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-card">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="login-logo">
+        <h2>Admin Login</h2>
+        <p>Sign in to access the company management dashboard.</p>
+
+        <form method="POST">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full">Login</button>
+        </form>
+    </div>
+</div>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

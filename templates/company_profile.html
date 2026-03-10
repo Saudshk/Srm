@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 {% block title %}Company Details{% endblock %}
 
@@ -70,4 +71,78 @@
         </div>
     </div>
 </div>
+=======
+{% extends "base.html" %}
+{% block title %}Company Details{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2>{{ company.company_name }}</h2>
+        <p class="text-muted mb-0">Company Full Details</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a href="{{ url_for('company_detail', company_id=company.id) }}" class="btn btn-primary">
+            Dynamic Tables
+        </a>
+        <a href="{{ url_for('edit_company', company_id=company.id) }}" class="btn btn-warning">
+            Edit Details
+        </a>
+    </div>
+</div>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h4 class="mb-3">Main Information</h4>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <strong>Company Name:</strong>
+                <div>{{ company.company_name or '-' }}</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Heading:</strong>
+                <div>{{ company.heading or '-' }}</div>
+            </div>
+
+            <div class="col-md-12">
+                <strong>Description:</strong>
+                <div>{{ company.description or '-' }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="mb-3">User / Contact Information</h4>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <strong>Contact Person:</strong>
+                <div>{{ company.contact_person or '-' }}</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Phone:</strong>
+                <div>{{ company.phone or '-' }}</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Email:</strong>
+                <div>{{ company.email or '-' }}</div>
+            </div>
+
+            <div class="col-md-6">
+                <strong>Address:</strong>
+                <div>{{ company.address or '-' }}</div>
+            </div>
+
+            <div class="col-md-12">
+                <strong>Notes:</strong>
+                <div>{{ company.notes or '-' }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

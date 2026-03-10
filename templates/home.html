@@ -1,3 +1,236 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+
+{% block title %}Sheikh Rafiq Computers | Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content reveal">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="S.R Computers Logo" class="hero-logo">
+
+        <span class="hero-badge">Reliable IT Support • Secure Management • Smart Solutions</span>
+
+        <h1>Sheikh Rafiq Computers</h1>
+        <p class="tagline">Reliable IT Support, Computer Services, and Technical Solutions</p>
+
+        <p class="hero-text">
+            We provide professional IT support services, computer maintenance,
+            troubleshooting, software assistance, hardware solutions, system setup,
+            and technical management for business operations. Our platform also helps
+            manage company records, secure workflows, business data, user access,
+            and audit visibility in one organized system.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg m-2">
+                Admin Login
+            </a>
+
+            <a href="{{ url_for('user_login') }}" class="btn btn-dark btn-lg m-2">
+                User Login
+            </a>
+
+            <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+    </div>
+</section>
+
+<section class="quick-highlights reveal">
+    <div class="highlight-box">
+        <h3>Fast Support</h3>
+        <p>Quick technical response for business systems and device issues.</p>
+    </div>
+    <div class="highlight-box">
+        <h3>Business IT Solutions</h3>
+        <p>Smart technology support for daily company operations.</p>
+    </div>
+    <div class="highlight-box">
+        <h3>Secure System Management</h3>
+        <p>Better control of users, records, tables, and company workflows.</p>
+    </div>
+</section>
+
+<section id="services" class="section-card reveal">
+    <h2>What We Do</h2>
+    <p class="section-subtext">
+        S.R Computers provides complete business technology support, computer servicing,
+        system setup, and operational IT assistance for companies and office environments.
+    </p>
+
+    <div class="services-grid">
+        <div class="service-box">
+            <h3>IT Support</h3>
+            <p>Technical support for daily business operations, systems, and devices.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Computer Maintenance</h3>
+            <p>Regular maintenance, updates, performance checks, and troubleshooting.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Hardware & Software Setup</h3>
+            <p>Installation, configuration, and support for office systems and software.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Data & System Management</h3>
+            <p>Organizing company records, tables, and technical information securely.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Network Assistance</h3>
+            <p>Basic networking support, connectivity checks, and office IT guidance.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Business Technology Solutions</h3>
+            <p>Helping businesses manage technical workflows in an efficient way.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-card reveal">
+    <h2>How Our System Works</h2>
+    <p class="section-subtext">
+        Our website is designed to make company management and IT operations easier,
+        clearer, and more secure for both administrators and users.
+    </p>
+
+    <div class="steps-grid">
+        <div class="step-box">
+            <span>01</span>
+            <h3>Login Access</h3>
+            <p>Admins and users can log in through separate portals based on their roles.</p>
+        </div>
+
+        <div class="step-box">
+            <span>02</span>
+            <h3>Manage Companies</h3>
+            <p>Company information, details, and structured business records can be managed centrally.</p>
+        </div>
+
+        <div class="step-box">
+            <span>03</span>
+            <h3>Handle Technical Data</h3>
+            <p>Store and organize important operational, system, and support-related information.</p>
+        </div>
+
+        <div class="step-box">
+            <span>04</span>
+            <h3>Monitor Activity</h3>
+            <p>Admins can review activity and system actions through audit visibility features.</p>
+        </div>
+
+        <div class="step-box">
+            <span>05</span>
+            <h3>Support Business Workflow</h3>
+            <p>The platform helps streamline computer services and technical management tasks.</p>
+        </div>
+
+        <div class="step-box">
+            <span>06</span>
+            <h3>Work More Efficiently</h3>
+            <p>Everything is kept clean, organized, and easier to access from one system.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-card reveal">
+    <h2>Website Features</h2>
+    <p class="section-subtext">
+        These are the key features available in the S.R Computers system for management,
+        operations, and technical support handling.
+    </p>
+
+    <div class="services-grid">
+        <div class="service-box">
+            <h3>Admin Dashboard</h3>
+            <p>Central area for managing companies, users, records, and system operations.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>User Dashboard</h3>
+            <p>Dedicated space for users to access their allowed content and workflow pages.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Company Management</h3>
+            <p>Add, view, and manage company-related information in a structured way.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Audit Logs</h3>
+            <p>Track system events and user actions for better visibility and accountability.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Role-Based Access</h3>
+            <p>Different levels of access for administrators and users to keep the system organized.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Organized Interface</h3>
+            <p>A clean and professional layout designed for easier navigation and business use.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-card reveal">
+    <h2>Why Choose Us</h2>
+    <div class="services-grid">
+        <div class="service-box">
+            <h3>Fast Support</h3>
+            <p>Quick response to technical issues and service requests.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Professional Service</h3>
+            <p>Clean, organized, and reliable technical support for business needs.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Trusted IT Partner</h3>
+            <p>Dedicated to helping companies manage and maintain their systems.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section reveal">
+    <h2>Need professional computer and IT support?</h2>
+    <p>
+        S.R Computers helps businesses with technical support, maintenance,
+        setup, troubleshooting, and company system management.
+    </p>
+    <div class="hero-buttons">
+        <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg m-2">Admin Login</a>
+        <a href="{{ url_for('user_login') }}" class="btn btn-outline btn-lg m-2">User Login</a>
+    </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+        reveals.forEach((element) => {
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const visiblePoint = 100;
+
+            if (elementTop < windowHeight - visiblePoint) {
+                element.classList.add("active");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+});
+</script>
+=======
 {% extends "base.html" %}
 
 {% block title %}S.R Computers | Home{% endblock %}
@@ -77,4 +310,5 @@
         </div>
     </div>
 </section>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

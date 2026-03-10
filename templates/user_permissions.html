@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Permissions for {{ user.username }}</h2>
+
+    <p class="mb-3">
+        Logged in as:
+        <strong>
+            {% if session.get("admin_id") %}
+                {{ session.get("username") }}
+            {% elif session.get("user_id") %}
+                {{ session.get("user_username") }}
+            {% endif %}
+        </strong>
+    </p>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label fw-bold">Allowed Tables</label>
+
+        {% for table in tables %}
+<div class="permission-row">
+    <div class="permission-label">
+        <strong>{{ table.table_name }}</strong>
+        {% if table.company_name %}
+            <small class="text-muted d-block">{{ table.company_name }}</small>
+        {% endif %}
+    </div>
+
+    <div class="permission-check">
+        <input
+            type="checkbox"
+            name="table_permissions"
+            value="{{ table.id }}"
+            {% if table.id in allowed_table_ids %}checked{% endif %}
+        >
+    </div>
+</div>
+{% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Permissions</button>
+    </form>
+</div>
+{% endblock %}

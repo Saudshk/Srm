@@ -1,3 +1,70 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sheikh Rafiq Computers{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="brand">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="S.R Computers Logo" class="logo">
+                <span>Sheikh Rafiq Computers</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('home') }}#services">Services</a>
+
+                {% if session.get('admin_id') %}
+                    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a href="{{ url_for('companies') }}">Companies</a>
+                    <a href="{{ url_for('audit_logs') }}">Audit Logs</a>
+
+                    <div class="user-badge">
+                        <span class="user-dot"></span>
+                        <span class="user-name">Admin</span>
+                    </div>
+
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline btn-sm">Logout</a>
+
+                {% elif session.get('user_id') %}
+                    <a href="{{ url_for('user_dashboard') }}">Dashboard</a>
+                    <a href="{{ url_for('companies') }}">Companies</a>
+
+                    <div class="user-badge">
+                        <span class="user-dot"></span>
+                        <span class="user-name">{{ session.get("user_username") }}</span>
+                    </div>
+
+                    <a href="{{ url_for('user_logout') }}" class="btn btn-outline btn-sm">Logout</a>
+
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-sm">Admin Login</a>
+                    <a href="{{ url_for('user_login') }}" class="btn btn-outline btn-sm">User Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash flash-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,4 +110,5 @@
     </main>
 
 </body>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 </html>

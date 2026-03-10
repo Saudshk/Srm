@@ -1,3 +1,163 @@
+<<<<<<< HEAD
+{% extends "base.html" %}
+{% block title %}Create Table{% endblock %}
+
+{% block content %}
+<div class="section-card">
+    <h3 class="mb-4">Create Dynamic Table for {{ company.company_name }}</h3>
+
+    <form method="POST" id="dynamicTableForm">
+        <div class="form-group">
+            <label>Table Name</label>
+            <input type="text" name="table_name" required>
+        </div>
+
+        <hr style="border-color:#333; margin:20px 0;">
+
+        <h4 class="mb-3">Columns</h4>
+
+        <div id="columnsContainer">
+            <div class="column-row" style="display:grid; grid-template-columns: 2.2fr 1.2fr 1fr 1fr; gap:12px; margin-bottom:14px; align-items:center;">
+                <div>
+                    <input type="text" name="column_name[]" placeholder="Column Name" required>
+                </div>
+
+                <div>
+                    <select name="column_type[]" class="column-type">
+                        <option value="text">Text</option>
+                        <option value="number">Number</option>
+                        <option value="date">Date</option>
+                        <option value="email">Email</option>
+                    </select>
+                </div>
+
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <input type="checkbox" name="is_expiry[]" value="0" class="expiry-checkbox">
+                    <label style="margin:0;">Expiry</label>
+                </div>
+
+                <div>
+                    <button type="button" class="btn btn-danger w-full remove-column">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-row mt-3">
+            <button type="button" class="btn btn-secondary" id="addColumnBtn">Add Column</button>
+            {% if session.get("admin_id") %}
+            <hr>
+
+<h5>Allow Users To Access This Table</h5>
+
+{% for user in users %}
+<div class="form-check">
+    <input class="form-check-input" 
+           type="checkbox" 
+           name="allowed_users" 
+           value="{{ user.id }}">
+
+    <label class="form-check-label">
+        {{ user.username }}
+    </label>
+</div>
+{% endfor %}
+{% endif %}
+            <button type="submit" class="btn btn-primary">Create Table</button>
+        </div>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("columnsContainer");
+    const addBtn = document.getElementById("addColumnBtn");
+
+    function updateCheckboxValues() {
+        const rows = document.querySelectorAll(".column-row");
+        rows.forEach((row, index) => {
+            const checkbox = row.querySelector(".expiry-checkbox");
+            checkbox.value = index;
+        });
+    }
+
+    function applyExpiryRule(row) {
+        const typeSelect = row.querySelector(".column-type");
+        const expiryCheckbox = row.querySelector(".expiry-checkbox");
+
+        if (typeSelect.value === "date") {
+            expiryCheckbox.disabled = false;
+            expiryCheckbox.checked = true;
+        } else {
+            expiryCheckbox.checked = false;
+            expiryCheckbox.disabled = true;
+        }
+    }
+
+    function applyAllRows() {
+        const rows = document.querySelectorAll(".column-row");
+        rows.forEach(row => applyExpiryRule(row));
+        updateCheckboxValues();
+    }
+
+    addBtn.addEventListener("click", function () {
+        const row = document.createElement("div");
+        row.className = "column-row";
+        row.style.display = "grid";
+        row.style.gridTemplateColumns = "2.2fr 1.2fr 1fr 1fr";
+        row.style.gap = "12px";
+        row.style.marginBottom = "14px";
+        row.style.alignItems = "center";
+
+        row.innerHTML = `
+            <div>
+                <input type="text" name="column_name[]" placeholder="Column Name" required>
+            </div>
+
+            <div>
+                <select name="column_type[]" class="column-type">
+                    <option value="text">Text</option>
+                    <option value="number">Number</option>
+                    <option value="date">Date</option>
+                    <option value="email">Email</option>
+                </select>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:8px;">
+                <input type="checkbox" name="is_expiry[]" class="expiry-checkbox">
+                <label style="margin:0;">Expiry</label>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-danger w-full remove-column">Remove</button>
+            </div>
+        `;
+
+        container.appendChild(row);
+        applyExpiryRule(row);
+        updateCheckboxValues();
+    });
+
+    container.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-column")) {
+            if (document.querySelectorAll(".column-row").length > 1) {
+                e.target.closest(".column-row").remove();
+                updateCheckboxValues();
+            }
+        }
+    });
+
+    container.addEventListener("change", function (e) {
+        if (e.target.classList.contains("column-type")) {
+            const row = e.target.closest(".column-row");
+            applyExpiryRule(row);
+            updateCheckboxValues();
+        }
+    });
+
+    applyAllRows();
+});
+</script>
+=======
 {% extends "base.html" %}
 {% block title %}Create Table{% endblock %}
 
@@ -138,4 +298,5 @@ document.addEventListener("DOMContentLoaded", function () {
     applyAllRows();
 });
 </script>
+>>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}

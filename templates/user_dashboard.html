@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>User Dashboard</h2>
+
+    <div class="mb-3">
+        <a href="{{ url_for('user_logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+
+    <h4>Your Tables</h4>
+    <ul class="list-group">
+        {% for table in tables %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ table.table_name }}
+            <a href="{{ url_for('view_table', table_id=table.id) }}" class="btn btn-sm btn-primary">Open</a>
+        </li>
+        {% else %}
+        <li class="list-group-item">No tables available.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

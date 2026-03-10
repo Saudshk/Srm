@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}S.R Computers | User Login{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-card">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="S.R Computers Logo" class="login-logo">
+
+        <h1>User Login</h1>
+        <p class="login-subtext">
+            Sign in to access your company dashboard.
+        </p>
+
+        <form method="POST" class="login-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

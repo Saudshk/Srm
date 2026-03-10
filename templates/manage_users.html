@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Manage Users</h2>
+    <a href="{{ url_for('create_user') }}" class="btn btn-success mb-3">Create User</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Created At</th>
+                <th>Permissions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.created_at }}</td>
+                <td>
+                    <a href="{{ url_for('user_permissions', user_id=user.id) }}" class="btn btn-sm btn-primary">
+                        Manage Permissions
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
