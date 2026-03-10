@@ -1,90 +1,31 @@
-<<<<<<< HEAD
 {% extends "base.html" %}
-{% block title %}Edit Company{% endblock %}
+{% block title %}Edit Company Detail{% endblock %}
 
 {% block content %}
-
 <div class="card shadow-sm">
     <div class="card-body">
-
-        <h2 class="mb-4">Edit Company</h2>
+        <h3 class="mb-4">Edit Company Detail</h3>
 
         <form method="POST">
-
             <div class="mb-3">
-                <label class="form-label">Company Name</label>
+                <label class="form-label">Label</label>
                 <input type="text"
-                       name="company_name"
+                       name="detail_label"
                        class="form-control"
-                       value="{{ company.company_name }}"
+                       value="{{ detail.detail_label }}"
                        required>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Description</label>
-                <textarea name="notes"
+                <textarea name="detail_description"
                           class="form-control"
-                          rows="4"
-                          placeholder="Optional description about the company">{{ company.notes or '' }}</textarea>
+                          rows="4">{{ detail.detail_value or '' }}</textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">
-                Update Company
-            </button>
-
-            <a href="{{ url_for('companies') }}"
-               class="btn btn-secondary">
-               Cancel
-            </a>
-
+            <button type="submit" class="btn btn-primary">Update Detail</button>
+            <a href="{{ url_for('company_detail', company_id=company_id) }}" class="btn btn-secondary">Cancel</a>
         </form>
-
     </div>
 </div>
-
-=======
-{% extends "base.html" %}
-{% block title %}Edit Company{% endblock %}
-
-{% block content %}
-
-<div class="card shadow-sm">
-    <div class="card-body">
-
-        <h2 class="mb-4">Edit Company</h2>
-
-        <form method="POST">
-
-            <div class="mb-3">
-                <label class="form-label">Company Name</label>
-                <input type="text"
-                       name="company_name"
-                       class="form-control"
-                       value="{{ company.company_name }}"
-                       required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Description</label>
-                <textarea name="notes"
-                          class="form-control"
-                          rows="4"
-                          placeholder="Optional description about the company">{{ company.notes or '' }}</textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary">
-                Update Company
-            </button>
-
-            <a href="{{ url_for('companies') }}"
-               class="btn btn-secondary">
-               Cancel
-            </a>
-
-        </form>
-
-    </div>
-</div>
-
->>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}
