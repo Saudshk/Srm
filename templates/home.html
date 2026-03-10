@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 {% extends "base.html" %}
 
-{% block title %}Sheikh Rafiq Computers | Home{% endblock %}
+{% block title %}S.R Computers | Home{% endblock %}
 
 {% block content %}
 <section class="hero">
@@ -230,85 +229,4 @@ document.addEventListener("DOMContentLoaded", function () {
     revealOnScroll();
 });
 </script>
-=======
-{% extends "base.html" %}
-
-{% block title %}S.R Computers | Home{% endblock %}
-
-{% block content %}
-<section class="hero">
-    <div class="hero-content">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="S.R Computers Logo" class="hero-logo">
-
-        <h1>Sheikh Rafiq Computers</h1>
-        <p class="tagline">Reliable IT Support, Computer Services, and Technical Solutions</p>
-
-        <p class="hero-text">
-            We provide professional IT support services, computer maintenance,
-            troubleshooting, software assistance, hardware solutions, system setup,
-            and technical management for business operations.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="{{ url_for('login') }}" class="btn btn-primary">Admin Login</a>
-            <a href="#services" class="btn btn-outline">Our Services</a>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="section-card">
-    <h2>What We Do</h2>
-    <div class="services-grid">
-        <div class="service-box">
-            <h3>IT Support</h3>
-            <p>Technical support for daily business operations, systems, and devices.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Computer Maintenance</h3>
-            <p>Regular maintenance, updates, performance checks, and troubleshooting.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Hardware & Software Setup</h3>
-            <p>Installation, configuration, and support for office systems and software.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Data & System Management</h3>
-            <p>Organizing company records, tables, and technical information securely.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Network Assistance</h3>
-            <p>Basic networking support, connectivity checks, and office IT guidance.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Business Technology Solutions</h3>
-            <p>Helping businesses manage technical workflows in an efficient way.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-card">
-    <h2>Why Choose Us</h2>
-    <div class="services-grid">
-        <div class="service-box">
-            <h3>Fast Support</h3>
-            <p>Quick response to technical issues and service requests.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Professional Service</h3>
-            <p>Clean, organized, and reliable technical support for business needs.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>Trusted IT Partner</h3>
-            <p>Dedicated to helping companies manage and maintain their systems.</p>
-        </div>
-    </div>
-</section>
->>>>>>> 64bfbef9fa20762ecf5499a190c88bf784a8ae4f
 {% endblock %}
